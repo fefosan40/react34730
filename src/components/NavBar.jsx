@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./nav.css";
 import CartWidget from "./CartWidget";
 
-const Navbar = () => {
+const NavBar = () => {
   return (
     <Fragment>
       <nav className="Nav">
@@ -13,7 +13,7 @@ const Navbar = () => {
         </Link>
         <Link to="/category/autos">Autos</Link>
         <Link to="/category/camionetas">Camionetas</Link>
-        <Link to="/item/id">
+        <Link to="/item/:id">
           Detalles del Producto
         </Link>
         <CartWidget />
@@ -27,4 +27,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavBar;
