@@ -1,3 +1,4 @@
+
 import React,{useState,useEffect} from 'react';
 import { useParams } from 'react-router';
 import ItemDetails from "./ItemDetails";
@@ -20,7 +21,7 @@ const ItemDetailsContainer = () => {
   
   useEffect(()=>{
    getProducts(jsonData,2000).then(respuesta=>{
-    const detalles= jsonData.find(item=>item.id === parseInt(id));
+    const detalles= respuesta.find(item=>item.id === parseInt(id));
     setItems(detalles)
       })
   },[id])
