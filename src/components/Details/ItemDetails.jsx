@@ -6,10 +6,10 @@ import ItemCount from './ItemCount';
 
 const ItemDetails = ({item}) => {
 
-  const [add,setAdd]=useState(false);
+  const [quantity,setQuantity]=useState();
    const { addItem } = useCartContext();
     const onAdd=(quantity)=>{
-      setAdd(true);
+      setQuantity(quantity);
       addItem(item,quantity);
     
  
@@ -30,12 +30,12 @@ const ItemDetails = ({item}) => {
  
            <div className="Container">
          <div className="cart-p" style={{ color:"green", fontSize:"20px",fontWeight:"600",textAlign:"right"}}>     
-         { add ? ( <div>Añadido al carrito! </div> ):(
-             <ItemCount item={add} initial={1} stock={5} onAdd={onAdd}/>
+        { quantity? ( <div>Añadido al carrito! </div> ):(
+             <ItemCount item={quantity} initial={1} stock={5} onAdd={onAdd}/>
              )}
              </div>
               <div>
-           {add && <Link  to="/cart" className="Incart btn btn-success"><i class="bi bi-cart-check"></i> Finalizar Compra
+           {quantity && <Link  to="/cart" className="Incart btn btn-success"><i className="bi bi-cart-check"></i> Finalizar Compra
                  </Link>  }
               
                 
