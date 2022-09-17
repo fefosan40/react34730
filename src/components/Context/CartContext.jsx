@@ -12,7 +12,7 @@ const [addCart,setAddCart]= useState([]);
 
 const addItem = (item,quantity)=>{
  let addNewItem;
- let car = addCart.some(car => car.id === item.id);
+ let car = addCart.find(car => car.id === item.id);
  if(car){
   car.quantity += quantity;
   addNewItem =[...addCart];
