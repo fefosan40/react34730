@@ -2,7 +2,7 @@ import{BrowserRouter,Routes,Route} from "react-router-dom"
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/Productos/ItemListContainer"
 import ItemDetailsContainer from"./components/Details/ItemDetailsContainer"
-import Cart from "./components/Cart";
+import Cart from "./components/Cart/Cart";
 import CartProvider from "./components/Context/CartContext";
 
 
