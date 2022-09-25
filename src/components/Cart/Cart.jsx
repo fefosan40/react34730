@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import{getFirestore, addDoc, collection,getDocs} from 'firebase/firestore'
+import{getFirestore, addDoc, collection,doc, updateDoc} from 'firebase/firestore'
 import { Link } from 'react-router-dom';
 import "./cart.css"
 import { useCartContext } from '../Context/CartContext';
@@ -34,14 +34,13 @@ const Cart = () => {
   addDoc(orderCollection,order).then(({id})=> setOrderId(id))
 
 }
-const OrderHandle = ( )=>{
-  const db = getFirestore();
-  const orderCollection = collection(db,"order");
-  getDocs(orderCollection).then(respuesta=>{
-   console.log(respuesta.docs.map(producto=>({id: producto.id, ...producto.data()})));
-  })
-}
-   
+
+   const updateOrder = () =>{
+    const db = getFirestore();
+    const orderDocs = doc(db,"order",
+    "8wOa4sm8MSREMMLnFCix");
+   updateDoc(orderDocs,{totalPrice})
+  }
 
  if(addCart.length === 0){
   return(
@@ -101,7 +100,9 @@ Generar compra      </Button>
         </Modal.Header>
         <Modal.Body>Gracias por su compra su id de seguimiento es : {orderId}</Modal.Body>
         <Modal.Footer>
-        
+        <Button variant="warning" onClick={updateOrder}>
+            Actualizar Orden
+          </Button>
           <Button variant="warning" onClick={handleClose}>
             Close
           </Button>
